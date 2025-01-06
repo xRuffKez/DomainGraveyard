@@ -40,7 +40,7 @@ def export_domains():
             if not domains:
                 break
 
-            file_name = f"{EXPORT_DIR}/dead_{file_count}.txt"
+            file_name = f"{EXPORT_DIR}/dead_{file_count}.coffin"
             created_time = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
             metadata = f"""# Source Repo: {SOURCE_REPO}
 # Author: {AUTHOR}
