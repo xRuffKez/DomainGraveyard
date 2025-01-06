@@ -39,4 +39,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add exports/dead_*.coffin
           git commit -m "Add exported dead domains files: $(date --utc +'%Y-%m-%dT%H:%M:%SZ')"
-          git push origin exported-domains
+          git push origin main
