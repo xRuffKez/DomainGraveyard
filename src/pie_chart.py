@@ -1,6 +1,6 @@
+import os
 import matplotlib.pyplot as plt
 import mysql.connector
-import os
 
 DB_CONFIG = {
     "host": os.getenv("DB_HOST"),
@@ -26,7 +26,7 @@ def fetch_status_counts():
     cursor.close()
     connection.close()
     return data
-  
+
 def generate_chart(data):
     statuses = [row[0] for row in data]
     counts = [row[1] for row in data]
@@ -42,23 +42,27 @@ def generate_chart(data):
         "OTHER": "#607d8b"
     }
 
-    # Create pie chart
-    fig, ax = plt.subplots(figsize=(8, 6))
-    wedges, texts, autotexts = ax.pie(
+    fig, ax = plt.subplots(figsize=(8, 8))
+    wedges, _, _ = ax.pie(
         counts,
-        labels=statuses,
-        autopct='%1.1f%%',
         colors=[colors.get(status, "#333333") for status in statuses],
         startangle=140
     )
-  
-    for text in texts:
-        text.set_fontsize(10)
-    for autotext in autotexts:
-        autotext.set_fontsize(10)
 
-    plt.title('Domain Status Distribution', fontsize=16)
-    plt.figtext(0.5, 0.02, f'Total Domains: {total_domains}', ha='center', fontsize=12)
+    ax.set_title('Domain Status Distribution', fontsize=16)
+
+    legend_labels = [
+        f"{status}: {count} ({count / total_domains:.1%})"
+        for status, count in zip(statuses, counts)
+    ]
+    ax.legend(
+        wedges,
+        legend_labels,
+        title="Statuses",
+        loc="center left",
+        bbox_to_anchor=(0.9, 0.5),
+        fontsize=10
+    )
 
     output_dir = "img"
     os.makedirs(output_dir, exist_ok=True)
@@ -67,7 +71,6 @@ def generate_chart(data):
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"Chart saved to {output_path}")
 
-# Main execution
 if __name__ == "__main__":
     data = fetch_status_counts()
     generate_chart(data)
