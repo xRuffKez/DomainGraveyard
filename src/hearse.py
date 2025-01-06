@@ -21,7 +21,7 @@ LIMIT %s OFFSET %s
 """
 
 AUTHOR = "xRuffKez"
-SOURCE_REPO = "https://github.com/xRuffKez/DomainGraveyard"  # Replace with your repo link
+SOURCE_REPO = "https://github.com/xRuffKez/DomainGraveyard"
 MAX_DOMAINS_PER_FILE = 1000000
 
 
