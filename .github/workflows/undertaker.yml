@@ -29,7 +29,7 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_PORT: ${{ secrets.DB_PORT }}
         run: |
-          python hearse.py
+          python src/hearse.py
           
       - name: Upload Exported Files
         uses: actions/upload-artifact@v3
