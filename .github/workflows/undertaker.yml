@@ -33,20 +33,11 @@ jobs:
         run: |
           python src/hearse.py
 
-      - name: Create a new branch for exports
+      - name: Export
         run: |
-          # Set up Git user configuration
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-
-          # Create and switch to a new branch (if not already created)
-          git checkout -b exported-domains
-
-          # Add the new exported files to the branch
+          git checkout -b main
           git add exports/*
-
-          # Commit the files with a timestamp
           git commit -m "Add exported dead domains files: $(date --utc +'%Y-%m-%dT%H:%M:%SZ')"
-
-          # Push the changes to the 'exported-domains' branch
           git push origin exported-domains
