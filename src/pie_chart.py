@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import mysql.connector
+import os
 
 DB_CONFIG = {
     "host": os.getenv("DB_HOST"),
