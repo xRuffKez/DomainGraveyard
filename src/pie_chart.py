@@ -43,7 +43,7 @@ def generate_chart(data):
     }
 
     fig, ax = plt.subplots(figsize=(8, 8))
-    wedges, _, _ = ax.pie(
+    wedges, _ = ax.pie(
         counts,
         colors=[colors.get(status, "#333333") for status in statuses],
         startangle=140
