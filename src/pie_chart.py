@@ -60,7 +60,10 @@ def generate_chart(data):
     plt.title('Domain Status Distribution', fontsize=16)
     plt.figtext(0.5, 0.02, f'Total Domains: {total_domains}', ha='center', fontsize=12)
 
-    output_path = "img/pie_chart.png"
+    output_dir = "img"
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_path = os.path.join(output_dir, "pie_chart.png")
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"Chart saved to {output_path}")
 
