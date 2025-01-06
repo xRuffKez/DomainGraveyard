@@ -3,4 +3,5 @@ sourced from https://github.com/hagezi/dns-blocklists
 
 Domains which return NXDOMAIN and SERVFAIL.
 
-Use the lists to clean your block lists or knee down and pray!
+![Domain Status Distribution](domain_status_pie_chart.png)
+
