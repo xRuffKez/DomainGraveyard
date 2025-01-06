@@ -37,6 +37,6 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          git add exports/*
+          git add exports/dead_*.coffin
           git commit -m "Add exported dead domains files: $(date --utc +'%Y-%m-%dT%H:%M:%SZ')"
           git push origin exported-domains
